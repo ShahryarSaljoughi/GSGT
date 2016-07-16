@@ -18,8 +18,8 @@ def Str2Tree(preOrderedString,inOrderedString):
     if (preStr==inStr and len(preStr)==len(inStr)==1) :
         return node
 
-    inOrderStrOfLeftTree=inStr.partition(sep=root)[0]
-    inOrderStrOfRightTree = inStr.partition(sep=root)[2]
+    inOrderStrOfLeftTree=inStr.partition(root)[0]
+    inOrderStrOfRightTree = inStr.partition(root)[2]
     lenOfLeft=len(inOrderStrOfLeftTree)
     lenOfRight = len(inOrderStrOfRightTree)
     preOrderStrOfLeftTree=preStr[1:lenOfLeft]

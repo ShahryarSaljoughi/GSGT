@@ -7,6 +7,10 @@ class Node():
         self.left=None
 
 def Str2Tree(preOrderedString,inOrderedString):
+    """
+
+    :rtype : object
+    """
     preStr=str(preOrderedString)
     inStr = str(inOrderedString)
     root= preStr[0]
@@ -15,14 +19,12 @@ def Str2Tree(preOrderedString,inOrderedString):
         return node
 
     inOrderStrOfLeftTree=inStr.partition(sep=root)[0]
-    inOrderStrOfRightTree = inStr.partition(root)[2]
+    inOrderStrOfRightTree = inStr.partition(sep=root)[2]
     lenOfLeft=len(inOrderStrOfLeftTree)
+    lenOfRight = len(inOrderStrOfRightTree)
     preOrderStrOfLeftTree=preStr[1:lenOfLeft]
     preOrderStrOfRightTree=preStr[lenOfLeft+1:]
-
-    node.left=Str2Tree(preOrderStrOfLeftTree,inOrderStrOfLeftTree)
-    node.right=Str2Tree(preOrderStrOfRightTree,inOrderStrOfRightTree)
-
-
-
-    inStr.find()
+    if lenOfLeft>0:
+        node.left=Str2Tree(preOrderStrOfLeftTree,inOrderStrOfLeftTree)
+    if lenOfRight>0:
+        node.right=Str2Tree(preOrderStrOfRightTree,inOrderStrOfRightTree)
